@@ -9,9 +9,11 @@ public class Main {
 	        Scanner sc = new Scanner(System.in);
 	        boolean run = true;
 	        boolean displayMainMenu = true;
-	       
-	        boolean input = true;//true=enable user input. false=disable user input
 	        int choice = 0;
+	        //load 
+	        System.out.println("Loading fighters...");
+	       fighters = game.readFighterFile("Fighters_data", fighters);
+	        System.out.println("Done!");
 	        //game loop
 	        while (run) {
 	        	if (displayMainMenu) {
@@ -25,20 +27,32 @@ public class Main {
 	        	}
 	        	displayMainMenu = false;
 	        try {
-	        	if (input) {
+	        	//if (input) {
 	        		System.out.println("Please select option according to number");
 	        		choice = sc.nextInt();
-	        	}
-	        	input = false;
+	        	//}
+	        	//input = false;
 	        }
 	        catch (Exception e) {
 	        	choice = 0;
-	        	input = true;
+	        	
 	        }
 	        
 	        if (choice == 3) {
-	        	game.readFighterFile("Fighters_data", fighters);
-	        	input = true;
+	        	if (!fighters.isEmpty()) {
+	        		//print fighter from array
+	        		for (int i = 0; i <= fighters.size(); i++) {
+	        			System.out.println("====================");
+	        			System.out.println("Fighter: " + i);
+	        			System.out.println("====================");
+	        			System.out.println("Name:" + fighters.get(i).name);
+	        			System.out.println("Health:" + fighters.get(i).health);
+	        			System.out.println("Strength:" + fighters.get(i).strength);
+	        			} 
+	        		}
+	        	else {
+	        		System.out.println("There are no fighters");
+	        	}
 	        }
 	        
 	        if (choice == 4) {
@@ -49,11 +63,11 @@ public class Main {
 	        //hidden option for debugging
 	        if (choice == 5) {
 		       	System.out.println("Test");
-		       	input = false;
+		       
 		       }	
 	        
 	        }
-	      
+	      sc.close();
 	        }
 	        
 }
