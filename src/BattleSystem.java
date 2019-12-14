@@ -80,10 +80,33 @@ public class BattleSystem
 		}
 		p.close();
 		}catch(FileNotFoundException e){
-			System.out.println("File not found!");
+			System.out.println(e);
 		}
 	}
 	
+	public void createFighter(ArrayList<Fighters> fightersArray) {
+		try {
+		Fighters fighter = new Fighters();
+		Scanner s = new Scanner(System.in);
+		System.out.println("Type the name of your fighter.");
+		fighter.name = s.next();
+		System.out.println("Set the health of your fighter");
+		fighter.health = s.nextInt();
+		System.out.println("Set the strength of your fighter");
+		fighter.strength = s.nextInt();
+		System.out.println("Do you want to save this Fighter? (y)es/(n)o");
+		String choice = s.next();
+		System.out.println(choice);
+		if (choice.equals("y") || choice.equals("yes")) {
+			fightersArray.add(fighter);
+			writeFighterFile("Fighters_data", fightersArray);
+			System.out.println("Fighter Saved!");
+		}
+		
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	
 	public void LoadFighters()
@@ -92,11 +115,6 @@ public class BattleSystem
 	}
 	
 	public void rivalSelector()
-	{
-		
-	}
-	
-	public void fighterPrompt()
 	{
 		
 	}

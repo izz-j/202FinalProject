@@ -26,15 +26,15 @@ public class Main {
 	        		System.out.println("================================");
 	        	}
 	        	displayMainMenu = false;
-	        try {
+	        
 	        		System.out.println("Please select option according to number");
 	        		choice = sc.nextInt();
-	        }
-	        catch (Exception e) {
-	        	choice = 0;
-	        	
-	        }
+	        		
 	        
+	        if (choice == 2) {
+	        	//create fighter
+	        	game.createFighter(fighters);
+	        }
 	        if (choice == 3) {
 	        	if (!fighters.isEmpty()) {
 	        		//print fighter from array
@@ -54,6 +54,7 @@ public class Main {
 	        
 	        if (choice == 4) {
 	        	//exits loop
+	        
 	        	System.out.println("Exited Program.");
 	        	run = false;
 	        }
