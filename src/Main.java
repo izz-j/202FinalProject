@@ -27,11 +27,8 @@ public class Main {
 	        	}
 	        	displayMainMenu = false;
 	        try {
-	        	//if (input) {
 	        		System.out.println("Please select option according to number");
 	        		choice = sc.nextInt();
-	        	//}
-	        	//input = false;
 	        }
 	        catch (Exception e) {
 	        	choice = 0;
@@ -41,7 +38,7 @@ public class Main {
 	        if (choice == 3) {
 	        	if (!fighters.isEmpty()) {
 	        		//print fighter from array
-	        		for (int i = 0; i <= fighters.size(); i++) {
+	        		for (int i = 0; i < fighters.size(); i++) {
 	        			System.out.println("====================");
 	        			System.out.println("Fighter: " + i);
 	        			System.out.println("====================");
