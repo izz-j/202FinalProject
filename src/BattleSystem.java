@@ -19,7 +19,7 @@ public class BattleSystem
 	}
 	
 
-	public void readFighterFile(String filepath, ArrayList<Fighters> fighters)
+	public ArrayList<Fighters> readFighterFile(String filepath, ArrayList<Fighters> fightersArray)
 	{
 		File f = new File(filepath);
 		try {
@@ -34,9 +34,8 @@ public class BattleSystem
 			System.out.println("There are no fighters");
 		else {
 			Scanner sc = new Scanner(f);
-			String s = sc.next();
-			//while (sc.hasNext()) {
-			for (int i = 0; sc.hasNext(); i++) {
+			String s;
+			while (sc.hasNext()) {
 				/* 
 				 * loop should run while sc has next line.
 				 * Will increment through each fighter in arraylist, 'i' being its index.
@@ -45,24 +44,48 @@ public class BattleSystem
 				 * 
 				 * Parsing trims the string as its being written
 				 */
-				fighters.get(i).name = s.substring(0, s.indexOf(','));
-				//	System.out.print(p.first_name);
+				Fighters fighter = new Fighters(); 
+				 s = sc.next();
+				fighter.name = s.substring(0, s.indexOf(','));
 				//trim  everything before the first comma occurrence
 				s = s.substring(s.indexOf(',') + 1);
 				//health is set to everything after first occurrence of comma
-				fighters.get(i).health = Integer.parseInt(s.substring(0, s.indexOf(',')));
+		
+				fighter.health = Integer.parseInt(s.substring(0, s.indexOf(',')));
 				//trim everything before the first comma occurrence
 				s = s.substring(s.indexOf(',') + 1);
-				fighters.get(i).strength = Integer.parseInt(s.substring(0, s.indexOf(',')));
+				fighter.strength = Integer.parseInt(s);
+				fightersArray.add(fighter);
 			}
 			sc.close();
+			
 		}
 		}
 		catch (Exception e) {
 			//do something
-			System.out.println("THere is something wrong");
+			System.out.println(e);
+		}
+		return fightersArray;
+	}
+	
+	public void writeFighterFile(String filepath, ArrayList<Fighters> fighters) {
+		
+		try{
+		PrintWriter p = new PrintWriter(filepath);
+		for (int i = 0; i < fighters.size(); i++){
+			p.print(fighters.get(i).name + ",");
+			p.print(fighters.get(i).health + ",");
+			p.print(fighters.get(i).strength);
+			p.println();
+		}
+		p.close();
+		}catch(FileNotFoundException e){
+			System.out.println("File not found!");
 		}
 	}
+	
+	
+	
 	public void LoadFighters()
 	{
 		
