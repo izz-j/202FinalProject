@@ -30,7 +30,13 @@ public class Main {
 	        		System.out.println("Please select option according to number");
 	        		choice = sc.nextInt();
 	        		
-	        
+	        if (choice == 1) {
+	        	//Player picks fighters before battle
+	        	Player player = new Player();
+	    		Rival rival = new Rival();
+	        	game.LoadFighters(fighters, player, rival);
+	        }
+	        		
 	        if (choice == 2) {
 	        	//create fighter
 	        	game.createFighter(fighters);
