@@ -6,7 +6,6 @@ public class Rival extends Fighters {
 			this.name = "rival";
 			this.health = 0;
 			this.strength = 0;
-			this.specialMove = 0;
 		}
 	}
 

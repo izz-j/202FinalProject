@@ -6,6 +6,8 @@ public class Main {
 		// TODO Auto-generated method stub
 			ArrayList<Fighters> fighters = new ArrayList<Fighters>();
 	        BattleSystem game = new BattleSystem();
+	        Player player = new Player();
+    		Rival rival = new Rival();
 	        Scanner sc = new Scanner(System.in);
 	        boolean run = true;
 	        boolean displayMainMenu = true;
@@ -26,17 +28,24 @@ public class Main {
 	        		System.out.println("================================");
 	        	}
 	        	displayMainMenu = false;
-	        
-	        		System.out.println("Please select option according to number");
+	        	System.out.println("Please select option from the main menu according to number. (scroll up)");
+	        try {
 	        		choice = sc.nextInt();
-	        		
+	        	
+	        } catch(Exception e) {
+	        	//sc.nextLine will clear the bad input
+	        	System.out.println("The input was invalid or does not exist on the menu.");
+	        	sc.nextLine();
+	        	
+	        }
+	        if (choice > 4 || choice < 1) 
+	        	System.out.println("Option does not exist in main menu.");
+	        
 	        if (choice == 1) {
 	        	//Player picks fighters before battle
-	        	Player player = new Player();
-	    		Rival rival = new Rival();
 	        	game.LoadFighters(fighters, player, rival);
 	        	
-	        	//Battle begins
+	        	//Battle runs from Battles method
 	        	game.Battles(player, rival);
 	        
 	        }
@@ -73,7 +82,7 @@ public class Main {
 		       	System.out.println("Test");
 		       
 		       }	
-	        
+	     
 	        }
 	      sc.close();
 	        }

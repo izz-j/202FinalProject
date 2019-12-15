@@ -6,6 +6,5 @@ public class Player extends Fighters {
 		this.name = "player";
 		this.health = 0;
 		this.strength = 0;
-		this.specialMove = 0;
 	}
 }

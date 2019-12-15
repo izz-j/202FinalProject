@@ -6,11 +6,9 @@ public class BattleSystem
 	//Attributes
 	public int playerHealth;
 	public int playerStrength;
-	public int playerSpecialMove;
 	
 	public int rivalHealth;
 	public int rivalStrength;
-	public int rivalSpecialMove;
 	
 	//Constructor
 	BattleSystem(){
@@ -40,7 +38,7 @@ public class BattleSystem
 				 * loop should run while sc has next line.
 				 * Will increment through each fighter in arraylist, 'i' being its index.
 				 * Fighter save file should look like:
-				 * NAME,HEALTH,STENGTH,SPECIALMOVE
+				 * NAME,HEALTH,STRENGTH
 				 * 
 				 * Parsing trims the string as its being written
 				 */
@@ -69,7 +67,7 @@ public class BattleSystem
 	}
 	
 	public void writeFighterFile(String filepath, ArrayList<Fighters> fighters) {
-		
+		//writes to file that contains fighters and fighter information
 		try{
 		PrintWriter p = new PrintWriter(filepath);
 		for (int i = 0; i < fighters.size(); i++){
@@ -84,7 +82,7 @@ public class BattleSystem
 		}
 	}
 	
-	public void createFighter(ArrayList<Fighters> fightersArray) {
+	public void createFighter(ArrayList<Fighters> fightersArray) {   //creates fighters, sets fighter stats, and saves to file based on user input
 		try {
 		Fighters fighter = new Fighters();
 		Scanner s = new Scanner(System.in);
@@ -104,17 +102,17 @@ public class BattleSystem
 		}
 		
 		}catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Input was invalid, returning to main menu.");
 		}
 	}
 	
 	
 	public void LoadFighters(ArrayList<Fighters> fightersArray, Player player, Rival rival)
 	{	
-		//Establishes player and rival fighters, loads from index and prints stats to console
+		//Loads fighters from index, saves to player and rival objects from Player and Rival classes
+		try {
 		Scanner s = new Scanner(System.in);
 		System.out.println("=========");
-		
 		for (int i = 0; i < fightersArray.size(); i++) {
 			System.out.println("Fighter: " + i);
 			System.out.println("Name:" + fightersArray.get(i).name);
@@ -144,12 +142,15 @@ public class BattleSystem
 			System.out.println("There are no fighters available to choose!");
 			return;
 			}
-		
+		}catch (Exception e) {
+			System.out.println("The input is invalid or the chosen fighter does not exist.");
+			System.out.println("Returning to the main menu...");
+		}
 		
 	
 	}
 	
-	public static void Battles(Player player, Rival rival) {
+	public static void Battles(Player player, Rival rival) { //Main battle system; Simple turn-based system wherein fighter's health is reduced by other fighter's strength
 		boolean finished = true;
 		
 		System.out.println("Player's " + player.name + " begins the fight against rival's " + rival.name + "!");
@@ -181,11 +182,4 @@ public class BattleSystem
 			  return;
 		  }
 	}
-	
-	//Public Methods
-	public void statGenerator()
-	{
-		
-	}
-
 }
