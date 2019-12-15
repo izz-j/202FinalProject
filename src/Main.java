@@ -45,6 +45,10 @@ public class Main {
 	        	//Player picks fighters before battle
 	        	
 	        	game.LoadFighters(fighters, player, rival);
+	        	
+	        	//Battle begins
+	        	game.Battles(player, rival);
+	        
 	        }
 	        		
 	        if (choice == 2) {
