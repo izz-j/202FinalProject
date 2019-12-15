@@ -15,6 +15,13 @@ public class BattleSystem
 	//Constructor
 	BattleSystem(){
 		//initialize battle system variables here.
+		this.playerHealth = 0;
+		this.playerStrength = 0;
+		this.playerSpecialMove = 0;
+
+		this.rivalHealth = 0;
+		this.rivalStrength = 0;
+		this.rivalSpecialMove = 0;
 		
 	}
 	
@@ -40,7 +47,7 @@ public class BattleSystem
 				 * loop should run while sc has next line.
 				 * Will increment through each fighter in arraylist, 'i' being its index.
 				 * Fighter save file should look like:
-				 * NAME,HEALTH,STENGTH,SPECIALMOVE
+				 * NAME,HEALTH,STRENGTH,SPECIALMOVE
 				 * 
 				 * Parsing trims the string as its being written
 				 */
@@ -145,12 +152,33 @@ public class BattleSystem
 			return;
 			}
 		
-		
-	
 	}
 	
-	public void rivalSelector()
-	{
+	public void rivalSelector(ArrayList<Fighters> fightersArray) {
+		
+		//Assuming that the rival will be chosen from a list of fighters that will be read from a text file
+
+		try {
+			Fighters rival = new Fighters();
+			Scanner rivalScanner = new Scanner(System.in);
+			System.out.println("Type the name of your rival.");
+			rival.name = rivalScanner.next();
+			System.out.println("Set the health of your rival");
+			rival.health = s.nextInt();
+			System.out.println("Set the strength of your rival");
+			rival.strength = s.nextInt();
+			System.out.println("Do you want to save this rival? (y)es/(n)o");
+			String choice = s.next();
+			System.out.println(choice);
+			if (choice.equals("y") || choice.equals("yes")) {
+				fightersArray.add(rival);
+				writeFighterFile("Rival_data", fightersArray);
+				System.out.println("Rival Saved!");
+			}
+			
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 		
 	}
 	
