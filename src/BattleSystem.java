@@ -109,7 +109,9 @@ public class BattleSystem
 	
 	public void LoadFighters(ArrayList<Fighters> fightersArray, Player player, Rival rival)
 	{	
+
 		//Loads fighters from index, saves to player and rival objects from Player and Rival classes
+
 		try {
 		Scanner s = new Scanner(System.in);
 		System.out.println("=========");
