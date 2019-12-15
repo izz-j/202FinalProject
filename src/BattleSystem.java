@@ -158,7 +158,7 @@ public class BattleSystem
 		
 		//Assuming that the rival will be chosen from a list of fighters that will be read from a text file
 
-		try {
+		try{
 			Fighters rival = new Fighters();
 			Scanner rivalScanner = new Scanner(System.in);
 			System.out.println("Type the name of your rival.");
