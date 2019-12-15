@@ -1,6 +1,6 @@
-202 Final Project: Iseman, Eric (Han Seong), Christine, and Rachaeal
+202 Final Project Group 10: Iseman, Eric (Han Seong), Christine, and Rachaeal
 
-Fighters and Battles Project
+Fighters and Battles Project: Group 10
 
 Summary:
 In essence, this project allows a user to create a list of fighters and set their health and strength stats, and thereafter provides options for the user to
