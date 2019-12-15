@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class BattleSystem 
+public class BattleSystem
 {
     
 	//Attributes
@@ -109,9 +109,44 @@ public class BattleSystem
 	}
 	
 	
-	public void LoadFighters()
-	{
+	public void LoadFighters(ArrayList<Fighters> fightersArray, Player player, Rival rival)
+	{	
+		//Establishes player and rival fighters, loads from index and prints stats to console
+		Scanner s = new Scanner(System.in);
+		System.out.println("=========");
 		
+		for (int i = 0; i < fightersArray.size(); i++) {
+			System.out.println("Fighter: " + i);
+			System.out.println("Name:" + fightersArray.get(i).name);
+			} 
+		
+		if (!fightersArray.isEmpty()) { 
+			System.out.println("Which fighters would you like to use for this battle?");
+			System.out.println("Choose your fighter.");
+		
+			int i = s.nextInt();
+			player.name = fightersArray.get(i).name;
+			player.health = fightersArray.get(i).health;
+			player.strength = fightersArray.get(i).strength;
+			
+			System.out.println("You have chosen: " + player.name + "!");
+			System.out.println("Choose your rival's fighter.");
+			
+			int y = s.nextInt();
+			rival.name = fightersArray.get(y).name;
+			rival.health = fightersArray.get(y).health;
+			rival.strength = fightersArray.get(y).strength;
+			
+			System.out.println("Your rival has chosen: " + rival.name + "!");
+			
+		}	
+		else {
+			System.out.println("There are no fighters available to choose!");
+			return;
+			}
+		
+		
+	
 	}
 	
 	public void rivalSelector()
@@ -119,10 +154,32 @@ public class BattleSystem
 		
 	}
 	
+	/* public static void Battles(Fighters) {
+		do {
+		    System.out.println("Player's" + Fighters + " begins the fight against rival's " + Fighters);
+		    rivalHealth = rivalHealth - playerStrength;
+
+		    System.out.prinktln("Player's fighter did " + playerStrength + "damage to rival's fighter!");
+		    System.out.println("Rival's fighter has " + rivalHealth + "left!");
+
+		    playerHealth = playerHealth - rivalStrength;
+
+		    System.out.println("Rival's fighter did " + rivalStrength + "damage to player's fighter!");
+		    System.out.println("Player's fighter has " + playerHealth +  "left!");
+		    
+		  }
+		while (pokemon1.health >= 1 || pokemon2.health >= 1);
+		  if(pokemon1.health < 1)
+		    System.out.println(pokemon1 +" has lost the fight");
+		  else
+		    System.out.println(pokemon2 +" has lost the fight");
+		  } 
+	} */
+	
 	//Public Methods
 	public void statGenerator()
 	{
 		
 	}
-	
+
 }

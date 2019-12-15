@@ -16,6 +16,7 @@ public class Fighters
 		strength = 10;
 	}
 	//Methods
+	
 	public static void getFighter()
 	{
 		
