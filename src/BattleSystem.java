@@ -109,45 +109,46 @@ public class BattleSystem
 	}
 	
 	
-	public void LoadFighters(ArrayList<Fighters> fightersArray)
+	public void LoadFighters(ArrayList<Fighters> fightersArray, Class Player, Class Rival)
 	{	
 		//Establishes player and rival fighters, loads from index and prints stats to console
-			Fighters playerFighter = new Fighters();
-			Fighters rivalFighter = new Fighters();
-			Scanner s = new Scanner(System.in);
+		Player player = new Player();
+		Rival rival = new Rival();
+		Scanner s = new Scanner(System.in);
+		System.out.println("=========");
+		
+		for (int i = 0; i < fightersArray.size(); i++) {
+			System.out.println("Fighter: " + i);
+			System.out.println("Name:" + fightersArray.get(i).name);
+			} 
+		
+		if (!fightersArray.isEmpty()) { 
+			System.out.println("Which fighters would you like to use for this battle?");
+			System.out.println("Choose your fighter.");
+		
+			int i = s.nextInt();
+			player.name = fightersArray.get(i).name;
+			player.health = fightersArray.get(i).health;
+			player.strength = fightersArray.get(i).strength;
 			
-			if (!fightersArray.isEmpty()) {	
+			System.out.println("You have chosen: " + player.name + "!");
+			System.out.println("Choose your rival's fighter.");
 			
-				System.out.println("Which fighters would you like to use?");
-				System.out.println("Choose your fighter.");
+			int y = s.nextInt();
+			rival.name = fightersArray.get(y).name;
+			rival.health = fightersArray.get(y).health;
+			rival.strength = fightersArray.get(y).strength;
 			
-				int i = s.nextInt();
-				playerFighter = fightersArray.get(i);
-				
-				System.out.println("Choose your rival's fighter.");
-				
-				int y = s.nextInt();
-				rivalFighter = fightersArray.get(y);
+			System.out.println("Your rival has chosen: " + rival.name + "!");
 			
-				System.out.println("====================");
-    			System.out.println("Player's Fighter: " + i);
-    			System.out.println("====================");
-    			System.out.println("Name:" + fightersArray.get(i).name);
-    			System.out.println("Health:" + fightersArray.get(i).health);
-    			System.out.println("Strength:" + fightersArray.get(i).strength);
-    			
-    			System.out.println("====================");
-    			System.out.println("Rival's Fighter: " + i);
-    			System.out.println("====================");
-    			System.out.println("Name:" + fightersArray.get(y).name);
-    			System.out.println("Health:" + fightersArray.get(y).health);
-    			System.out.println("Strength:" + fightersArray.get(y).strength);
+		}	
+		else {
+			System.out.println("There are no fighters available to choose!");
+			return;
 			}
-			
-			else {
-				System.out.println("There are no fighters available to choose!");
-				return;
-			}
+		
+		
+	
 	}
 	
 	public void rivalSelector()

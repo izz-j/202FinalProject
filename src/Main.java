@@ -32,7 +32,7 @@ public class Main {
 	        		
 	        if (choice == 1) {
 	        	//Player picks fighters before battle
-	        	game.LoadFighters(fighters);
+	        	game.LoadFighters(fighters, null, null);
 	        }
 	        		
 	        if (choice == 2) {
