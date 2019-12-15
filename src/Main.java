@@ -28,10 +28,19 @@ public class Main {
 	        		System.out.println("================================");
 	        	}
 	        	displayMainMenu = false;
-	        
-	        		System.out.println("Please select option according to number");
+	        	System.out.println("Please select option from the main menu according to number. (scroll up)");
+	        try {
 	        		choice = sc.nextInt();
-	        		
+	        	
+	        } catch(Exception e) {
+	        	//sc.nextLine will clear the bad input
+	        	System.out.println("The input was invalid or does not exist on the menu.");
+	        	sc.nextLine();
+	        	
+	        }
+	        if (choice > 4 || choice < 1) 
+	        	System.out.println("Option does not exist in main menu.");
+	        
 	        if (choice == 1) {
 	        	//Player picks fighters before battle
 	        	
@@ -70,7 +79,7 @@ public class Main {
 		       	System.out.println("Test");
 		       
 		       }	
-	        
+	     
 	        }
 	      sc.close();
 	        }

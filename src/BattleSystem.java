@@ -104,7 +104,7 @@ public class BattleSystem
 		}
 		
 		}catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Input was invalid, returning to main menu.");
 		}
 	}
 	
@@ -112,9 +112,9 @@ public class BattleSystem
 	public void LoadFighters(ArrayList<Fighters> fightersArray, Player player, Rival rival)
 	{	
 		//Establishes player and rival fighters, loads from index and prints stats to console
+		try {
 		Scanner s = new Scanner(System.in);
 		System.out.println("=========");
-		
 		for (int i = 0; i < fightersArray.size(); i++) {
 			System.out.println("Fighter: " + i);
 			System.out.println("Name:" + fightersArray.get(i).name);
@@ -144,7 +144,10 @@ public class BattleSystem
 			System.out.println("There are no fighters available to choose!");
 			return;
 			}
-		
+		}catch (Exception e) {
+			System.out.println("The input is invalid or the chosen fighter does not exist.");
+			System.out.println("Returning to the main menu...");
+		}
 		
 	
 	}
