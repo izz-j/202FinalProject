@@ -149,32 +149,38 @@ public class BattleSystem
 	
 	}
 	
-	public void rivalSelector()
-	{
+	public static void Battles(Player player, Rival rival) {
+		boolean finished = true;
 		
-	}
-	
-	/* public static void Battles(Fighters) {
-		do {
-		    System.out.println("Player's" + Fighters + " begins the fight against rival's " + Fighters);
-		    rivalHealth = rivalHealth - playerStrength;
+		System.out.println("Player's " + player.name + " begins the fight against rival's " + rival.name + "!");
+		while (finished) {
+		    rival.health = rival.health - player.strength;
 
-		    System.out.prinktln("Player's fighter did " + playerStrength + "damage to rival's fighter!");
-		    System.out.println("Rival's fighter has " + rivalHealth + "left!");
+		    System.out.println("Player's fighter did " + player.strength + " damage to rival's " + rival.name + "!");
+		    System.out.println("Rival's " + rival.name + " has " + rival.health + " health left!");
 
-		    playerHealth = playerHealth - rivalStrength;
+		    player.health = player.health - rival.strength;
 
-		    System.out.println("Rival's fighter did " + rivalStrength + "damage to player's fighter!");
-		    System.out.println("Player's fighter has " + playerHealth +  "left!");
+		    System.out.println("Rival's fighter did " + rival.strength + " damage to " + player.name + "!");
+		    System.out.println("Player's " + player.name + " has " + player.health +  " health left!");
 		    
+		    if(player.health < 1) {
+				finished = false;
+				System.out.println(player.name + " was knocked unconscious!");
+			    System.out.println("Player's " + player.name + " has lost the fight...");
+			  }  
+			   
+			else if(rival.health < 1) {
+				finished = false;
+				System.out.println(rival.name + " was knocked unconscious!");
+			    System.out.println("Player's " + player.name + " has won the fight!");
+			    
+			  }
 		  }
-		while (pokemon1.health >= 1 || pokemon2.health >= 1);
-		  if(pokemon1.health < 1)
-		    System.out.println(pokemon1 +" has lost the fight");
-		  else
-		    System.out.println(pokemon2 +" has lost the fight");
-		  } 
-	} */
+		  if(finished = false) {
+			  return;
+		  }
+	}
 	
 	//Public Methods
 	public void statGenerator()

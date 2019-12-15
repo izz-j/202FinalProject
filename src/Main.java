@@ -35,6 +35,10 @@ public class Main {
 	        	Player player = new Player();
 	    		Rival rival = new Rival();
 	        	game.LoadFighters(fighters, player, rival);
+	        	
+	        	//Battle begins
+	        	game.Battles(player, rival);
+	        
 	        }
 	        		
 	        if (choice == 2) {
