@@ -6,6 +6,8 @@ public class Main {
 		// TODO Auto-generated method stub
 			ArrayList<Fighters> fighters = new ArrayList<Fighters>();
 	        BattleSystem game = new BattleSystem();
+	        Player player = new Player();
+    		Rival rival = new Rival();
 	        Scanner sc = new Scanner(System.in);
 	        boolean run = true;
 	        boolean displayMainMenu = true;
@@ -32,8 +34,7 @@ public class Main {
 	        		
 	        if (choice == 1) {
 	        	//Player picks fighters before battle
-	        	Player player = new Player();
-	    		Rival rival = new Rival();
+	        	
 	        	game.LoadFighters(fighters, player, rival);
 	        }
 	        		
