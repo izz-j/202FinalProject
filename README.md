@@ -2,6 +2,12 @@
 
 Fighters and Battles Project: Group 10
 
+Github Usernames:
+	Iseman: (izz-j)
+	Eric: (HK651ScarletEK)
+	Christine: (codewithchristine20)
+	Rachael: (rachaeln)
+
 Summary:
 In essence, this project allows a user to create a list of fighters and set their health and strength stats, and thereafter provides options for the user to
 view their created fighters as well as pit two selected fighters in a one-on-one, turn-based battle wherein a fighter's health is reduced by their opponent's
