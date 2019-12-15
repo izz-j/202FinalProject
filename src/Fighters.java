@@ -9,26 +9,9 @@ public class Fighters
 	public String name;
 	public int health;
 	public int strength;
-	public int specialMove;
 	Fighters(){
 		name = "player";
 		health = 100;
 		strength = 10;
-	}
-	//Methods
-	
-	public static void getFighter()
-	{
-		
-	}
-	
-	public void Getters()
-	{
-		
-	}
-	
-	public void Setters()
-	{
-		
 	}
 }

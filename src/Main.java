@@ -43,10 +43,10 @@ public class Main {
 	        
 	        if (choice == 1) {
 	        	//Player picks fighters before battle
-	        	
+
 	        	game.LoadFighters(fighters, player, rival);
 	        	
-	        	//Battle begins
+	        	//Battle runs from Battles method
 	        	game.Battles(player, rival);
 	        
 	        }
